@@ -1,0 +1,255 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: monospace;
+    /* font-family: sans-serif; */
+}
+body{
+    background-color: black;
+    height: 100vh;
+    color: white;
+}
+
+
+/* headarea */
+
+.headbar{
+    width: 100%;
+    height: 6%;
+    display: flex;
+    align-items: center;
+    border-bottom:  1px solid rgb(32, 32, 32) ;
+}
+
+.iconarea{
+    width: 20%;
+}
+
+.iconholder{
+    margin-left: 20px;
+    list-style: none;
+}
+
+.iconround{
+    width: 16px;
+    height: 16px;
+    background-color: red;
+    border-radius: 500px;
+    float: left;
+    margin-left: 4px;
+}
+
+.headheading {
+    width: 60%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+.mainbody{
+    width: 100%;
+    height: 91%;
+    display: flex;
+}
+
+.explorer{
+    height: 100%;
+    padding-left: 2%;
+    width: 20%;
+}
+
+.explorername{
+    height: 10%;
+    display: flex;
+    align-items: center;
+}
+
+.explorerpane{
+    padding-top: 20px;
+}
+
+.directorylist{
+    list-style : none;
+}
+
+.directoryitems{
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 28px;
+}
+
+.directorylist :hover{
+    cursor: pointer;
+    background-color: rgba(0, 140, 255, 0.623);
+    width: 80%;
+    border-radius: 8px;
+}
+.fileselected{
+    border: 2px solid rgb(0, 119, 255);
+    background-color: rgba(0, 132, 255, 0.541);
+    width: 80%;
+    border-radius: 8px;
+}
+
+.directoryname{
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.foldericon{
+    width: 24px;
+    margin-right: 4px;
+}
+
+
+
+
+.codearea{
+    width: 80%;
+    height: 100%;
+    margin-right: 12px;
+    overflow: hidden;
+}
+
+.filenamearea{
+    width: 100%;
+    height: 6%;
+    display: flex;
+    align-items: center;
+}
+
+.filenamearea h3{
+    padding-left: 20px;
+}
+
+.filecontentarea{
+    width: 100%;
+    height: 94%;
+    /* background-color: rgb(32, 32, 32); */
+    background-color: rgb(24, 24, 24);
+
+    border-radius: 8px;
+}
+
+
+
+
+
+
+.footerbar{
+    position: absolute;
+    width: 100%;
+    height: 3%;
+    bottom: 0px;
+    display: flex;
+    align-items: center;
+}
+
+.footercontent{
+    border-top: 1px solid rgb(32, 32, 32);
+    font-size: 14px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px;
+}
+
+
+
+.editor{
+    padding-top: 32px;
+    font-size:16px;
+    line-height: 2em;
+    display: flex;
+    height: 100%;
+    overflow-y: scroll;
+}
+.linenumbers{
+    height: 100%;
+    width:10%;
+    display: flex;
+    color: grey;
+    justify-content: center;
+}
+
+.actualcode{
+    white-space: pre-wrap;
+    width: 90%;
+    height: 100%;
+    color: rgb(207, 207, 207);
+}
+
+.highlightwb{
+    color:red;
+}
+
+.vname{
+    color: rgb(255, 182, 47);
+}
+.intlits{
+    color: rgb(255, 64, 255);
+}
+.keyword{
+    color: aqua;
+}
+
+.skilllist{
+    display: flex;
+    flex-direction: column;
+}
+
+.skill{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+
+.progbar{
+    width: 30%;
+    height: 6px;
+    background-color: rgb(121, 121, 121);
+    border-radius: 20px;
+}
+
+.progbarsuc{
+    width: 20%;
+    height: 6px;
+    border-radius: 20px;
+    background-color: aqua;
+}
+
+
+
+
+.links{
+    color:white;
+    text-decoration: none;
+    color: rgb(255, 182, 47);
+}
+
+
+
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(83, 83, 83);
+}
+.container {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.container::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
