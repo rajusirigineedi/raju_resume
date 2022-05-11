@@ -207,7 +207,7 @@ const writeInitialCode = (txt, speed) => {
   var timeoutfunc;
   function typeWriter() {
     clearInterval(timeoutfunc);
-    if(i < 45){
+    if(i < 40){
       codearea.innerHTML += txt.slice(i*wordLength, (i*wordLength)+wordLength);
       i++;
       timeoutfunc = setTimeout(typeWriter, speed);
