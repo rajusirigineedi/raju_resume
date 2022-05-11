@@ -10,6 +10,10 @@ body{
     color: white;
 }
 
+.body-lightmode{
+    background-color: white;
+    color: black;
+}
 
 /* headarea */
 
@@ -18,7 +22,7 @@ body{
     height: 6%;
     display: flex;
     align-items: center;
-    border-bottom:  1px solid rgb(32, 32, 32) ;
+    /* border-bottom:  1px solid rgb(32, 32, 32) ; */
 }
 
 .iconarea{
@@ -36,7 +40,14 @@ body{
     background-color: red;
     border-radius: 500px;
     float: left;
+    opacity: 0.8;
     margin-left: 4px;
+}
+
+.iconround:hover{
+    cursor: pointer;
+    opacity: 1;
+    filter: brightness(250%);
 }
 
 .headheading {
@@ -136,7 +147,6 @@ body{
     height: 94%;
     /* background-color: rgb(32, 32, 32); */
     background-color: rgb(24, 24, 24);
-
     border-radius: 8px;
 }
 
@@ -155,7 +165,7 @@ body{
 }
 
 .footercontent{
-    border-top: 1px solid rgb(32, 32, 32);
+    /* border-top: 1px solid rgb(32, 32, 32); */
     font-size: 14px;
     width: 100%;
     display: flex;
@@ -163,6 +173,25 @@ body{
     padding: 0px 20px;
 }
 
+.themesection{
+    display: flex;
+}
+
+.themeicon{
+    width: 16px;
+    margin-left: 4px;
+}
+
+.themeicon:hover{
+    cursor: pointer;
+    background-color: rgba(0, 140, 255, 0.623);
+    border-radius: 3px;
+}
+
+.themeiconselected {
+    border: 1px solid rgb(0, 119, 255);
+    border-radius: 3px;
+}
 
 
 .editor{
@@ -188,6 +217,13 @@ body{
     color: rgb(207, 207, 207);
 }
 
+.filecontentarea-lightmode{
+    background-color: rgba(221, 221, 221, 0.664);
+}
+.actualcode-lightmode{
+    color:rgb(46, 46, 46);
+}
+
 .highlightwb{
     color:red;
 }
@@ -202,6 +238,24 @@ body{
     color: aqua;
 }
 
+.highlightwb, .vname, .intlits, .keyword{
+  transition-timing-function: ease-in;
+  transition-property: padding, background-color;
+  transition-duration: 0.5s;
+}
+
+.highlightwb:hover, .vname:hover, .intlits:hover, .keyword:hover {
+    border: 2px solid rgb(0, 119, 255);
+    background-color: rgba(0, 132, 255, 0.541);
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    padding: 10px;
+
+    transition-timing-function: ease-in;
+    transition-property: padding, background-color;
+    transition-duration: 0.1s, 0.55s;
+}
 .skilllist{
     display: flex;
     flex-direction: column;
@@ -237,7 +291,9 @@ body{
     color: rgb(255, 182, 47);
 }
 
-
+.blurelement{
+    filter: blur(3px);
+}
 
 
 ::-webkit-scrollbar {

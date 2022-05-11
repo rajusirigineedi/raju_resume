@@ -1,6 +1,10 @@
 const openfilename = document.getElementById('openfilename');
 const lineNumbers = document.getElementsByClassName('linenumbers')[0];
 const codearea = document.getElementsByClassName('actualcode')[0];
+const buttons = document.getElementsByClassName('iconround');
+const fullbody = document.getElementsByTagName('body')[0];
+const openEditor = document.getElementsByClassName('filecontentarea')[0];
+const themeOptions = document.getElementsByClassName('themeicon');
 
 
 var aboutpage = `Hello I'm <span class="highlightwb"><b>< Raju sirigineedi /></b></span>
@@ -180,6 +184,54 @@ var pagedic = {
     }
 }
 
+
+var setLightTheme = ()=>{
+  fullbody.classList.add('body-lightmode');
+  codearea.classList.add('actualcode-lightmode');
+  openEditor.classList.add('filecontentarea-lightmode');
+  themeOptions[1].classList.add('themeiconselected');
+  themeOptions[0].classList.remove('themeiconselected');
+
+}
+var setDarkTheme = ()=>{
+  fullbody.classList.remove('body-lightmode');
+  codearea.classList.remove('actualcode-lightmode');
+  openEditor.classList.remove('filecontentarea-lightmode');
+  themeOptions[0].classList.add('themeiconselected');
+  themeOptions[1].classList.remove('themeiconselected');
+}
+
+const writeInitialCode = (txt, speed) => {
+  var i = 0;
+  var wordLength = 10;
+  var timeoutfunc;
+  function typeWriter() {
+    clearInterval(timeoutfunc);
+    if(i < 45){
+      codearea.innerHTML += txt.slice(i*wordLength, (i*wordLength)+wordLength);
+      i++;
+      timeoutfunc = setTimeout(typeWriter, speed);
+    }
+  }
+
+  return typeWriter;
+}
+
+
+var timeOutFuncPage;
+const typingEffect = (currpage)=>{
+  return new Promise((resolve, reject) => {
+    clearInterval(timeOutFuncPage);
+    codearea.innerHTML = "";
+    codearea.classList.add('blurelement');
+    timeOutFuncPage = setTimeout(()=>{
+      resolve();
+    }, 500);
+    writeInitialCode(currpage, 10)();
+  });
+}
+
+
 const setFileName = (name) => {
     openfilename.textContent = name;
     var page = name.split('.')[0];
@@ -195,7 +247,11 @@ const setFileName = (name) => {
         s+=`${i+1}<br>`;
     }
     lineNumbers.innerHTML = s;
-    codearea.innerHTML = currpage;
+    // codearea.innerHTML = currpage;
+    typingEffect(currpage).then(()=>{
+      codearea.innerHTML = currpage;
+      codearea.classList.remove('blurelement');
+    }, (err)=>{});
 }
 
 const removeFileSelectedBar = () => {
@@ -207,6 +263,19 @@ const removeFileSelectedBar = () => {
     })
 }
 
+const setListenersForButtons = ()=>{
+  var closeButton = buttons[0];
+  var minButton = buttons[1];
+  var maxButton = buttons[2];
+  console.log(maxButton);
+  maxButton.addEventListener('click', ()=>{
+    fullbody.requestFullscreen().then(()=>{}).catch(err=>{});
+  })
+  minButton.addEventListener('click', ()=>{
+    document.exitFullscreen().then(()=>{}).catch(err=>{});
+  });
+}
+
 document.querySelectorAll('.directoryitems').forEach( item => {
     item.addEventListener('click', event => {
         removeFileSelectedBar();
@@ -215,4 +284,15 @@ document.querySelectorAll('.directoryitems').forEach( item => {
     })
 });
 
+const setThemeOptions = ()=>{
+  themeOptions[0].addEventListener('click', ()=>{
+    setDarkTheme();
+  });
+  themeOptions[1].addEventListener('click', ()=>{
+    setLightTheme();
+  });
+}
+
 setFileName('About.js');
+setListenersForButtons();
+setThemeOptions();
