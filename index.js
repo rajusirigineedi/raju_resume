@@ -187,6 +187,7 @@ var pagedic = {
 
 var setLightTheme = ()=>{
   fullbody.classList.add('body-lightmode');
+  fullbody.classList.remove('body-darkmode');
   codearea.classList.add('actualcode-lightmode');
   openEditor.classList.add('filecontentarea-lightmode');
   themeOptions[1].classList.add('themeiconselected');
@@ -195,6 +196,7 @@ var setLightTheme = ()=>{
 }
 var setDarkTheme = ()=>{
   fullbody.classList.remove('body-lightmode');
+  fullbody.classList.add('body-darkmode');
   codearea.classList.remove('actualcode-lightmode');
   openEditor.classList.remove('filecontentarea-lightmode');
   themeOptions[0].classList.add('themeiconselected');
@@ -207,7 +209,7 @@ const writeInitialCode = (txt, speed) => {
   var timeoutfunc;
   function typeWriter() {
     clearInterval(timeoutfunc);
-    if(i < 40){
+    if(i < 80){
       codearea.innerHTML += txt.slice(i*wordLength, (i*wordLength)+wordLength);
       i++;
       timeoutfunc = setTimeout(typeWriter, speed);
@@ -226,8 +228,8 @@ const typingEffect = (currpage)=>{
     codearea.classList.add('blurelement');
     timeOutFuncPage = setTimeout(()=>{
       resolve();
-    }, 500);
-    writeInitialCode(currpage, 10)();
+    }, 1000);
+    writeInitialCode(billerpage, 10)();
   });
 }
 
@@ -267,9 +269,10 @@ const setListenersForButtons = ()=>{
   var closeButton = buttons[0];
   var minButton = buttons[1];
   var maxButton = buttons[2];
-  console.log(maxButton);
   maxButton.addEventListener('click', ()=>{
-    fullbody.requestFullscreen().then(()=>{}).catch(err=>{});
+    fullbody.requestFullscreen().then(()=>{
+      console.log(fullbody);
+    }).catch(err=>{});
   })
   minButton.addEventListener('click', ()=>{
     document.exitFullscreen().then(()=>{}).catch(err=>{});
@@ -294,5 +297,5 @@ const setThemeOptions = ()=>{
 }
 
 setFileName('About.js');
-setListenersForButtons();
+// setListenersForButtons();
 setThemeOptions();

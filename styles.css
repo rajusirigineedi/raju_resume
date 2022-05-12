@@ -4,15 +4,18 @@
     font-family: monospace;
     /* font-family: sans-serif; */
 }
-body{
-    background-color: black;
-    height: 100vh;
-    color: white;
-}
 
+body{
+    height: 100vh;
+}
 .body-lightmode{
     background-color: white;
     color: black;
+}
+
+.body-darkmode{
+    background-color: black;
+    color:white;
 }
 
 /* headarea */
@@ -47,7 +50,6 @@ body{
 .iconround:hover{
     cursor: pointer;
     opacity: 1;
-    filter: brightness(250%);
 }
 
 .headheading {
@@ -242,6 +244,8 @@ body{
   transition-timing-function: ease-in;
   transition-property: padding, background-color;
   transition-duration: 0.5s;
+  animation-name: keywentry;
+  animation-duration: 2s;
 }
 
 .highlightwb:hover, .vname:hover, .intlits:hover, .keyword:hover {
@@ -280,8 +284,22 @@ body{
     height: 6px;
     border-radius: 20px;
     background-color: aqua;
+    animation-name: progressanim;
+    animation-duration: 2s;
 }
 
+
+/* animations */
+
+@keyframes progressanim {
+    from { width: 0%;}
+}
+@keyframes keywentry {
+    from {
+        opacity: 0.3;
+        letter-spacing: 0.1em;
+    }
+}
 
 
 
